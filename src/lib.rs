@@ -10,7 +10,7 @@ use syn::{parse_macro_input, DeriveInput, Field, Visibility};
 pub fn create_encapsulation_impls(t: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let ast = parse_macro_input!(t as DeriveInput);
 
-    todo!()
+	create_std_impl(ast).into()
 }
 
 fn create_std_impl(input: DeriveInput) -> TokenStream {
@@ -22,9 +22,11 @@ fn create_std_impl(input: DeriveInput) -> TokenStream {
         syn::Data::Union(_) => panic!("Electroplate does not support unions"),
     };
 
+
     for field in struct_fields {
         // let field_attr = field.attrs;
-    }
+
+	}
 
     quote! {
         impl #struct_name {
@@ -36,18 +38,21 @@ fn create_std_impl(input: DeriveInput) -> TokenStream {
 //For now, just generates getters/setters for
 fn process_struct_member(field: Field) -> TokenStream {
     //Skip public fields
-    if field.vis == Visibility::Public(token!()) {
-        return quote! {};
-    }
+    // if field.vis == Visibility::Public(token!()) {
+    //     return quote! {};
+    // }
 
-	let ident = field.ident.unwrap_or_default();
-	// let set_ident =
-	let field_type = field.ty;
+    let ident = field.ident.unwrap();
+    // let set_ident =
+    let field_type = field.ty;
+
+    let getter_name = quote! {
+        pub fn #ident() -> #field_type{
+            ident
+        }
+    };
 
 	quote!{
-		pub fn #ident() -> #field_type{
-			ident
-		}
+		#getter_name
 	}
-
 }
