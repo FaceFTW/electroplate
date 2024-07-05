@@ -1,5 +1,6 @@
 use electroplate::Electroplate;
 
+#[derive(Debug, Clone, PartialEq)]
 enum BasicEnum1 {
     Variant0,
     Variant1(i32),

@@ -1,0 +1,8 @@
+error: Electroplate does not support unions
+ --> tests/negative_examples/fail_union.rs:4:1
+  |
+4 | / union DummyUnion {
+5 | |     f1: u32,
+6 | |     f2: u32,
+7 | | }
+  | |_^
