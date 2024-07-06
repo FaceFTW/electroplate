@@ -2,7 +2,7 @@
 
 Configurable `derive` macros to create encapsulation methods for structs (and maybe enums)
 
-***This project is a WIP, it might not even materialize into anything***
+***This project is a significant WIP. APIs and Usage is not finalized until the 1.0.0 release which is still TBD given***
 
 This is partially inspired by [Project Lombok](https://projectlombok.org/) which does a similar thing with Java objects.
 
@@ -19,9 +19,11 @@ As a note, encapsulation of data in structs (the analogue for objects in other l
 The following is currently planned as the scope of Electroplate. This scope may change as development pursues over time:
 
 - [x] Auto-Generation of Struct Member Getters
+- [ ] Auto-Generation of Struct Member Getters by Reference
 - [ ] Marking Struct Members that are truly private
 - [ ] Marking Struct Members that should have an "immutable setter" (Will require `Clone` trait)
 - [ ] Marking Struct Members that should have a mutable setter
+- [ ]
 - [ ] Support for Generic Structs
 - [ ] Creating Getters for members of a "child struct" (i.e. `)
 - [ ] Custom names for getters/setters

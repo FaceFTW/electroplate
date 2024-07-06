@@ -52,6 +52,8 @@ fn process_struct_member(field: &Field) -> TokenStream {
     // let set_ident =
     let field_type = field.ty.clone();
 
+    // if field_type.type_id()
+
     let getter_name = quote! {
         pub fn #ident(&self) -> #field_type{
             self.#ident
