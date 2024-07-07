@@ -39,6 +39,7 @@ fn create_std_impl(input: DeriveInput) -> TokenStream {
             #(#struct_getters)*
         }
     }
+
 }
 
 //For now, just generates getters/setters for
